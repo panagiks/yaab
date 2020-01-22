@@ -47,20 +47,21 @@ And you would like to transform it into a schema that fits the rest of your API,
 Then you would define and use your model in the following way:
 
 .. highlight::
-        from dataclasses import asdict, dataclass, field
 
-        from yaab.adapter import BaseAdapter
+    from dataclasses import asdict, dataclass, field
 
-        @dataclass
-        class MyModel(BaseAdapter):
-            id: int = field(metadata={"transformations": ("oid", int)})
-            name: str = field(metadata={"transformations": ("weird_name", )})
+    from yaab.adapter import BaseAdapter
 
-        m = MyModel.from_dict({"weird_name": "My name", "oid": "3"})
-        print(m)
-        MyModel(id=3, name='My name')
-        asdict(m)
-        {'id': 3, 'name': 'My name'}
+    @dataclass
+    class MyModel(BaseAdapter):
+        id: int = field(metadata={"transformations": ("oid", int)})
+        name: str = field(metadata={"transformations": ("weird_name", )})
+
+    m = MyModel.from_dict({"weird_name": "My name", "oid": "3"})
+    print(m)
+    MyModel(id=3, name='My name')
+    asdict(m)
+    {'id': 3, 'name': 'My name'}
 
 Features
 --------
