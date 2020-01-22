@@ -1,0 +1,17 @@
+language: python
+python:
+- 3.8
+- 3.7
+- 3.6
+install: pip install -U tox-travis
+script: tox
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: panagiks
+  password:
+    secure: IBwM8I+8S+GZk6rjtUlCcaoQ4owILVXd4qUbXcIGYwQrmtGY86TcPYLurC9v3NFTk+suNMytZPCVGW/qGHljnX+g8Q2Ol0gT6NklwmSgJE6WpVGgUbafTLKsFMD0ygZJiysooh8qcmemWQr5lyot1H/IaOWZxYO0sKRui6SRnx2AepLxYrNF9XoRlJEJcXkDdvFInOX5+2lVBNPgR1X919oCybsg5vfp4socQ236O9SDKH9zPazZqtPagMteJgnIRuY8UFuHrpZMDqJqlYGJPMPy0+RrftVnZqcAROKaW4WcjFZyY60ej+TWYDrfsav2/tRFuHR4zrvKB9oPCKqUJnM2X8ObCAFILvTo4JsO2HFTSTxGNpCH0RmzZSM5c+PI9BwfI/aqCTD0zmMSjdHFMKUfB+JTwfkggdSnn28w4VN8kulnkLhtN4oT4GE1vAngVhjlmm713AukAwddnO8GRnYYFxdVqcSpSiFfvxxi0lohNGTE2DdKk/UKRSxUqA/3tZ7marDFtq8cwznxHmJ6DawVr+/NBciAP16ceSF66Bv3pXOdYsrcaklyM0hQM8X+ZpbFzrHpQ3EEkDa/naUBS0TRXZ5u8NpANNF2vRBDoVPMnx/Ogyvs2C0UOIenh4//gtMbptUpKO2SCvOcf6TyHa+pMZ7gu/eVKSOJx6E9WVA=
+  on:
+    tags: true
+    repo: panagiks/yaab
+    python: 3.8
