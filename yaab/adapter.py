@@ -14,7 +14,9 @@ class BaseAdapter:
     """
     Base Class for Adapter pattern Models.
     """
+    __slots__ = tuple()
     _accessor: ClassVar[_TAccessor] = lambda el, tr: el
+    _meta_key: ClassVar[str] = "transformations"
 
     @classmethod
     def from_any(cls, element: Any, *, accessor: Optional[_TAccessor]=None, **kwargs: Dict[str, Any]) -> 'BaseAdapter':
@@ -25,7 +27,7 @@ class BaseAdapter:
                 continue
             value = element
             with suppress(KeyError):
-                transformations = cls_field.metadata["transformations"]
+                transformations = cls_field.metadata[cls._meta_key]
                 for transformation in transformations:
                     if callable(transformation):
                         value = transformation(value)
