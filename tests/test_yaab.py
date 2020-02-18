@@ -31,10 +31,13 @@ def test_from_dict():
 
 def test_from_env():
     import os
+
     os.environ["APP_ID"] = str(TEST_ID)
+
     @dataclass
     class EnvFakeModel(BaseAdapter):
         id: int = field(metadata={"transformations": ("APP_ID", int)})
+
     m = EnvFakeModel.from_env()
     assert m.id == TEST_ID
 
