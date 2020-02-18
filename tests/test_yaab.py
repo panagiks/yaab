@@ -36,10 +36,15 @@ def test_from_env():
 
     @dataclass
     class EnvFakeModel(BaseAdapter):
-        id: int = field(metadata={"transformations": ("APP_ID", int)})
+        id: int = field(metadata={"transformations": ("APP_ID", int)}, default=TEST_ID + 1)
 
     m = EnvFakeModel.from_env()
     assert m.id == TEST_ID
+
+    # Test that default is utilized properly
+    del os.environ["APP_ID"]
+    m = EnvFakeModel.from_env()
+    assert m.id == TEST_ID + 1
 
 
 def test_with_defaults():

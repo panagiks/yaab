@@ -51,4 +51,4 @@ class BaseAdapter:
 
     @classmethod
     def from_env(cls, **kwargs: Dict) -> "BaseAdapter":
-        return cls.from_any(None, accessor=lambda el, tr: os.getenv(tr), **kwargs)
+        return cls.from_any(None, accessor=lambda el, tr: os.environ[tr], **kwargs)
