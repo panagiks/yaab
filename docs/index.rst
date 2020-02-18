@@ -1,5 +1,5 @@
 Welcome to Yet Another Adapter Base's documentation!
-======================================
+====================================================
 
 .. toctree::
    :maxdepth: 2
