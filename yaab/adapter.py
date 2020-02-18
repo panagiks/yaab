@@ -2,7 +2,7 @@
 import os
 
 from contextlib import suppress
-from dataclasses import dataclass, field, fields, is_dataclass
+from dataclasses import dataclass, fields, is_dataclass
 from typing import Any, Callable, ClassVar, Dict, Optional
 
 

@@ -2,7 +2,6 @@
 
 """Tests for `yaab` package."""
 
-import pytest
 from dataclasses import dataclass, field
 
 from yaab.adapter import BaseAdapter
