@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.1 (2020-02-18)
+------------------
+
+* Bugfix: from_env now utilizes default values.
+
 0.2.0 (2020-02-18)
 ------------------
 
