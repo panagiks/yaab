@@ -22,10 +22,12 @@ def test_init():
     assert m.id == TEST_ID
     assert m.name == TEST_NAME
 
+
 def test_from_dict():
     m = FakeModel.from_dict({"id": TEST_ID, "name": TEST_NAME})
     assert m.id == TEST_ID
     assert m.name == TEST_NAME
+
 
 def test_from_env():
     import os
@@ -36,10 +38,12 @@ def test_from_env():
     m = EnvFakeModel.from_env()
     assert m.id == TEST_ID
 
+
 def test_with_defaults():
     m = FakeModel.from_dict({"id": TEST_ID}, name=TEST_NAME)
     assert m.id == TEST_ID
     assert m.name == TEST_NAME
+
 
 def test_accessor_none():
     class FakeModelExt(FakeModel):

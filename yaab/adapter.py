@@ -19,7 +19,7 @@ class BaseAdapter:
     _meta_key: ClassVar[str] = "transformations"
 
     @classmethod
-    def from_any(cls, element: Any, *, accessor: Optional[_TAccessor]=None, **kwargs: Dict[str, Any]) -> 'BaseAdapter':
+    def from_any(cls, element: Any, *, accessor: Optional[_TAccessor] = None, **kwargs: Dict[str, Any]) -> 'BaseAdapter':
         if accessor is None:
             accessor = cls._accessor
         for cls_field in fields(cls):
