@@ -49,3 +49,13 @@ def test_accessor_none():
     m = FakeModelExt.from_any({"id": TEST_ID, "name": TEST_NAME})
     assert m.id == TEST_ID
     assert m.name == TEST_NAME
+
+
+def test_nested():
+    @dataclass
+    class ParentModel(BaseAdapter):
+        fm: FakeModel = field(metadata={"transformations": ("fm", FakeModel)})
+
+    m = ParentModel.from_dict({"fm": {"id": TEST_ID, "name": TEST_NAME}})
+    assert m.fm.id == TEST_ID
+    assert m.fm.name == TEST_NAME

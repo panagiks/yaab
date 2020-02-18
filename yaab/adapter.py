@@ -2,7 +2,7 @@
 import os
 
 from contextlib import suppress
-from dataclasses import dataclass, field, fields
+from dataclasses import dataclass, field, fields, is_dataclass
 from typing import Any, Callable, ClassVar, Dict, Optional
 
 
@@ -29,7 +29,9 @@ class BaseAdapter:
             with suppress(KeyError):
                 transformations = cls_field.metadata[cls._meta_key]
                 for transformation in transformations:
-                    if callable(transformation):
+                    if is_dataclass(transformation):
+                        value = transformation.from_any(value, accessor=accessor)
+                    elif callable(transformation):
                         value = transformation(value)
                     else:
                         value = accessor(value, transformation)
