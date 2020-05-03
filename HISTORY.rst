@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.2 (2020-05-03)
+------------------
+
+* Introduce type conversion & convenience Mixins
+
 0.2.1 (2020-02-18)
 ------------------
 
