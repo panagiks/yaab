@@ -9,6 +9,9 @@ Yet Another Adapter Base
 .. image:: https://img.shields.io/travis/panagiks/yaab.svg
         :target: https://travis-ci.org/panagiks/yaab
 
+.. image:: https://pepy.tech/badge/yaab
+        :target: https://pepy.tech/project/yaab
+
 .. image:: https://readthedocs.org/projects/yaab/badge/?version=latest
         :target: https://yaab.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
